@@ -1,0 +1,30 @@
+body {
+    background: url("../images/background.jpg") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Orbitron;
+}
+
+.container {
+    margin: 5% auto 5% auto;
+}
+
+.card-header {
+    border-bottom: 1px solid black;
+}
+
+#winner,
+#player,
+#remote,
+#scoreboard {
+    text-align: center;
+    border: 2px solid black;
+    box-shadow: 2px 5px 15px black;
+}
+
+#stats {
+    font-weight: bolder;
+    font-size: 20px;
+}

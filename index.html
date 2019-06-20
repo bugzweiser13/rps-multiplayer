@@ -9,7 +9,7 @@
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/custom_main_page.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Link to Moment.js -->
     <script src="https://momentjs.com/downloads/moment.js"></script>
 
@@ -21,27 +21,116 @@
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
 
 </head>
 
 <body>
+    <!-- 
+    <div class="fullDiv">
+        <h1>Rock Paper Scissors (multi) </h1>
+        <div class="innerLeftBlurred"></div>
+    </div>
+    <div class="innerRightBlurred"></div>
+    <div class="innerRight">
+        <div class="row">
+            <div class="account-wall">
+                <img class="profile-img" src="assets/images/3.png" alt="user_avatar">
+                <form class="form-signin">
+                    <input type="text" class="form-control" id="userName" placeholder="User Name" required autofocus>
+                    <input type="password" class="form-control" id="password" placeholder="Password" maxlength="5" required>
+                    <button class="btn btn-lg btn-primary btn-block sign-in" id="sign-in" type="submit">Sign in</button>
+
+                    <label class="checkbox pull-left">
+                    <input type="checkbox" value="remember-me">Remember me
+                    </label>
+
+                    <a href="#" class="pull-right need-help" id="needHelp">forgot password? </a>
+                </form>
+                <a href="sign_up.html" class="text-center new-account">Create an account </a>
+            </div>
+        </div> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="card card-default" id="winner">
+                    <div class="card-header" style="font-weight: bolder;">
+                        <h2>Winner</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- <div class="col-sm-3"></div> -->
+                        <div id="winner_img" style="text-align: center;">
+                            <img src="assets/images/fill.jpg">
+                        </div>
+                        <!-- <div class="col-sm-3"></div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row mt-2" id="game_container">
+            <div class="col-sm-5">
+                <div class="card card-default" id="player">
+                    <div class="card-header" style="font-weight: bolder;">
+                        <h2>Local Choice</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="player_img">
+                            <img src="assets/images/fill.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5">
+                <div class="card card-default" id="remote">
+                    <div class="card-header" style="font-weight: bolder;">
+                        <h2>Remote Choice</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="remote_img">
+                            <img src="assets/images/fill.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="card card default" id="scoreboard">
+                    <div class="card-header" style="font-weight: bolder;">
+                        <h2>ScoreBoard</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-sm-12" id="stats">
+                            <p>Wins: &nbsp;<span class="win">00</span></p>
+                            <p>Loses: <span class="loss">00</span></p>
+                            <p>Ties: <span class="tie">00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
 
 
 
 
 
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first 
+     <script src="/__/firebase/6.2.0/firebase-app.js"></script>-->
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#reserved-urls -->
 
     <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
+    <!-- <script src="/__/firebase/init.js"></script> -->
 </body>
+<script src="assets/js/app.js "></script>
 
 </html>
