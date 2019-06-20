@@ -36,6 +36,10 @@ $(document).ready(function() {
         var paperImg = "assets/images/paper.jpg";
         var scissorsImg = "assets/images/scissors.jpg";
 
+        var rockImg1 = "assets/images/rock1.jpg";
+        var paperImg1 = "assets/images/paper1.jpg";
+        var scissorsImg1 = "assets/images/scissors1.jpg";
+
         var rock = $("<img>");
         rock.attr('src', rockImg);
         rock.attr("alt", "rock.jpg");
@@ -47,6 +51,18 @@ $(document).ready(function() {
         var scissors = $("<img>");
         scissors.attr('src', scissorsImg);
         scissors.attr("alt", "scissors.jpg");
+
+        var rock1 = $("<img>");
+        rock1.attr('src', rockImg1);
+        rock1.attr("alt", "rock.jpg");
+
+        var paper1 = $("<img>");
+        paper1.attr('src', paperImg1);
+        paper1.attr("alt", "paper.jpg");
+
+        var scissors1 = $("<img>");
+        scissors1.attr('src', scissorsImg1);
+        scissors1.attr("alt", "scissors.jpg");
 
 
         //debugging
@@ -71,15 +87,15 @@ $(document).ready(function() {
         //remote image population
         if (computerGuess === "r") {
             $("#remote_img").empty();
-            $("#remote_img").append(rock);
+            $("#remote_img").append(rock1);
         }
         if (computerGuess === "p") {
             $("#remote_img").empty();
-            $("#remote_img").append(paper);
+            $("#remote_img").append(paper1);
         }
         if (computerGuess === "s") {
             $("#remote_img").empty();
-            $("#remote_img").append(scissors);
+            $("#remote_img").append(scissors1);
         }
 
         // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
@@ -88,6 +104,9 @@ $(document).ready(function() {
             if ((userGuess === "r" && computerGuess === "s") ||
                 (userGuess === "s" && computerGuess === "p") ||
                 (userGuess === "p" && computerGuess === "r")) {
+                // winnerPop();
+                // $("#winner_img").empty();
+                // $("#winner_img").append(rock)
                 wins++;
             } else if (userGuess === computerGuess) {
                 ties++;
@@ -106,4 +125,10 @@ $(document).ready(function() {
             $(".tie").text(ties);
         }
     };
+
+    function winnerPop(rock, paper, scissors) {
+        console.log("This Function Works!!");
+        $("#winner_img").append(rock)
+
+    }
 });
