@@ -19,10 +19,15 @@ $(document).ready(function() {
     var losses = 0;
     var ties = 0;
 
+    //gameplay
     document.onkeyup = function(event) {
 
         //gameplay variables / choices
+
+        //localplayer
         var userGuess = event.key;
+
+        //remote player
         var computerChoices = ["r", "p", "s"];
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
