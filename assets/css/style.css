@@ -8,11 +8,17 @@ body {
 }
 
 .container {
-    margin: 5% auto 5% auto;
+    margin: 3% auto 3% auto;
 }
 
 .card-header {
     border-bottom: 1px solid black;
+}
+
+#winner_card {
+    /* background: url("../images/rock_win.jpg") no-repeat;
+    background-size: cover; */
+    height: 230px;
 }
 
 #winner,

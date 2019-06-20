@@ -14,6 +14,8 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     var dataRef = firebase.database();
 
+    var userGuess;
+
     //game stats
     var wins = 0;
     var losses = 0;
@@ -21,6 +23,9 @@ $(document).ready(function() {
 
     //gameplay
     document.onkeyup = function(event) {
+
+        // $("#winner_img").empty();
+        // $("#winner_img").fadeTo(300, 1);
 
         //gameplay variables / choices
 
@@ -31,7 +36,7 @@ $(document).ready(function() {
         var computerChoices = ["r", "p", "s"];
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-        //local player image population
+        //local player image population variables
         var rockImg = "assets/images/rock.jpg";
         var paperImg = "assets/images/paper.jpg";
         var scissorsImg = "assets/images/scissors.jpg";
@@ -48,7 +53,7 @@ $(document).ready(function() {
         scissors.attr('src', scissorsImg);
         scissors.attr("alt", "scissors.jpg");
 
-        //remote player image population
+        //remote player image population variables
         var rockImg1 = "assets/images/rock1.jpg";
         var paperImg1 = "assets/images/paper1.jpg";
         var scissorsImg1 = "assets/images/scissors1.jpg";
@@ -64,7 +69,6 @@ $(document).ready(function() {
         var scissors1 = $("<img>");
         scissors1.attr('src', scissorsImg1);
         scissors1.attr("alt", "scissors.jpg");
-
 
         //debugging
         console.log("Letter picked: " + userGuess);
@@ -105,7 +109,7 @@ $(document).ready(function() {
             if ((userGuess === "r" && computerGuess === "s") ||
                 (userGuess === "s" && computerGuess === "p") ||
                 (userGuess === "p" && computerGuess === "r")) {
-                // winnerPop();
+                winnerPop(userGuess);
                 // $("#winner_img").empty();
                 // $("#winner_img").append(rock)
                 wins++;
@@ -127,9 +131,46 @@ $(document).ready(function() {
         }
     };
 
-    function winnerPop(rock, paper, scissors) {
-        console.log("This Function Works!!");
-        $("#winner_img").append(rock)
+    console.log("Guess Outside Function: " + userGuess);
 
+    function winnerPop(userGuess) {
+
+        console.log("Guess Inside Function: " + userGuess);
+
+        //winner image plot clear
+        $("#winner_img").empty();
+        $("#winner_img").fadeTo(300, 1);
+
+        //winner image variables
+        var rockImgWin = "assets/images/rock_win.jpg";
+        var paperImgWin = "assets/images/paper_win.jpg";
+        var scissorsImgWin = "assets/images/scissors_win.jpg";
+
+        var rockWin = $("<img>");
+        rockWin.attr('src', rockImgWin);
+        rockWin.attr("alt", "rock.jpg");
+
+        var paperWin = $("<img>");
+        paperWin.attr('src', paperImgWin);
+        paperWin.attr("alt", "paper.jpg");
+
+        var scissorsWin = $("<img>");
+        scissorsWin.attr('src', scissorsImgWin);
+        scissorsWin.attr("alt", "scissors.jpg");
+
+        //winner image popultation
+        if (userGuess === "r") {
+            $("#winner_img").empty();
+            $("#winner_img").append(rockWin);
+            $("#winner_img").delay(1200).fadeTo(300, 0);
+        } else if (userGuess === "p") {
+            $("#winner_img").empty();
+            $("#winner_img").append(paperWin);
+            $("#winner_img").delay(1200).fadeTo(300, 0);
+        } else if (userGuess === "s") {
+            $("#winner_img").empty();
+            $("#winner_img").append(scissorsWin);
+            $("#winner_img").delay(1200).fadeTo(300, 0);
+        }
     }
 });
