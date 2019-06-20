@@ -31,14 +31,10 @@ $(document).ready(function() {
         var computerChoices = ["r", "p", "s"];
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-        //player image population
+        //local player image population
         var rockImg = "assets/images/rock.jpg";
         var paperImg = "assets/images/paper.jpg";
         var scissorsImg = "assets/images/scissors.jpg";
-
-        var rockImg1 = "assets/images/rock1.jpg";
-        var paperImg1 = "assets/images/paper1.jpg";
-        var scissorsImg1 = "assets/images/scissors1.jpg";
 
         var rock = $("<img>");
         rock.attr('src', rockImg);
@@ -51,6 +47,11 @@ $(document).ready(function() {
         var scissors = $("<img>");
         scissors.attr('src', scissorsImg);
         scissors.attr("alt", "scissors.jpg");
+
+        //remote player image population
+        var rockImg1 = "assets/images/rock1.jpg";
+        var paperImg1 = "assets/images/paper1.jpg";
+        var scissorsImg1 = "assets/images/scissors1.jpg";
 
         var rock1 = $("<img>");
         rock1.attr('src', rockImg1);
