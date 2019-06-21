@@ -14,8 +14,6 @@ $(document).ready(function() {
     firebase.initializeApp(config);
     var dataRef = firebase.database();
 
-    var userGuess;
-
     //game stats
     var wins = 0;
     var losses = 0;
@@ -24,17 +22,24 @@ $(document).ready(function() {
     //gameplay
     document.onkeyup = function(event) {
 
-        // $("#winner_img").empty();
-        // $("#winner_img").fadeTo(300, 1);
-
-        //gameplay variables / choices
+        //gameplay variables
+        // var playerName = $("#localPlayerNameInput").val().trim();
 
         //localplayer
         var userGuess = event.key;
 
+        dataRef.ref().update({
+            userGuess: userGuess,
+        });
+
+        //local player push to firebase variables here
+
         //remote player
+        //computer variables for testing of gameplay
         var computerChoices = ["r", "p", "s"];
         var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+        //firebase remote player variables input here
 
         //local player image population variables
         var rockImg = "assets/images/rock.jpg";
@@ -71,9 +76,8 @@ $(document).ready(function() {
         scissors1.attr("alt", "scissors.jpg");
 
         //debugging
-        console.log("Letter picked: " + userGuess);
-        console.log("Computer picked: " + computerGuess);
-
+        // console.log("Letter picked: " + userGuess);
+        // console.log("Computer picked: " + computerGuess);
 
         // local image population
         if (userGuess === "r") {
@@ -120,22 +124,38 @@ $(document).ready(function() {
             }
 
             //debug game stats
-            console.log("Wins: " + wins);
-            console.log("Losses: " + losses);
-            console.log("ties: " + ties);
+            // console.log("Wins: " + wins);
+            // console.log("Losses: " + losses);
+            // console.log("ties: " + ties);
 
             //game stats post
             $(".win").text(wins);
             $(".loss").text(losses);
             $(".tie").text(ties);
         }
+
+        dataRef.ref().on("child_added", function(snapshot) {
+
+            //debugging
+            console.log(snapshot.val());
+            console.log(snapshot.val().userGuess);
+
+            // Handle the errors
+        }, function(errorObject) {
+            console.log("Errors handled: " + errorObject.code);
+        });
+
     };
 
-    console.log("Guess Outside Function: " + userGuess);
+
+
+    //debugging
+    // console.log("Guess Outside Function: " + userGuess);
 
     function winnerPop(userGuess) {
 
-        console.log("Guess Inside Function: " + userGuess);
+        //debugging
+        // console.log("Guess Inside Function: " + userGuess);
 
         //winner image plot clear
         $("#winner_img").empty();
